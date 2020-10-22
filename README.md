@@ -1,5 +1,15 @@
 # Simple web application for control bikes
 
+## Bootstrapping your environment
+
+```sh
+# drop any persistent state to make sure you are working with clean install
+$ docker-compose down -v && docker-compose pull
+# spin everything up
+$ docker-compose up -d
+```
+Now you should be able to access webclient at http://localhost:8080 and api at http://localhost:8087
+
 ### Containers
 
 * [bike-db](https://hub.docker.com/_/mongo)
