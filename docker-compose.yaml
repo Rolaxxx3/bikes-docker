@@ -1,0 +1,25 @@
+version: '3'
+services:
+  bike-db:
+    container_name: bike-db
+    image: mongo
+    ports:
+      - '27017:27017'
+    environment: 
+      MONGO_INITDB_DATABASE: bike
+          
+  bike-api:
+    container_name: bike-api
+    image: rolaxxx3/bike-api:latest
+    ports:
+     - '8087:3000'
+    links:
+      - bike-db
+    environment:
+      - MONGODB_URI=bike-db
+
+  bike-webclient:
+    container_name: bike-webclient
+    image: rolaxxx3/bike-webclient:latest
+    ports:
+      - '8080:80'
